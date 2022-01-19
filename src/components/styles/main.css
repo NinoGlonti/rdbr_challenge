@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200&display=swap');
+@import './calculator.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Sora', sans-serif;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #2B303A , #3F4756 );
+  overflow-y: scroll;
+}
+
+.landing-page-container {
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1080px;
+  padding-top: 100px;
+  margin: auto;
+}
+
+.left-container {
+  max-width: 660px;
+}
+
+h1{
+  font-size: 40px;
+  font-weight: 700px;
+  font-style: bold;
+  line-height: 50px;
+}
+
+.first-section-text {
+  font-size: 18px;
+  text-align: left;
+  line-height: 30px;
+  margin: 20px 0 40px 0;
+}
+.first-section-link {
+  color: #E1261C;
+}
+.middle-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 32px;
+  font-style: bold;
+  line-height: 35px;
+}
+
+.second-section-text {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.middle-section-image {
+  max-width: 240px;
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.bottom-section {
+  padding-top: 20px;
+}
+
+.bottom-section-list {
+  list-style-position: inside;
+  list-style-type: none;
+  line-height: 32px;
+}
+
+.bottom-section-list > li {
+  font-size: 18px;
+}
+
+.bottom-section-list > li::before {
+  content: '-';
+  padding-right: 9px;
+  background: linear-gradient(to right, #911812, #E1261C);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  background-size: cover;
+}
+
+.nested-list {
+  padding-left: 20px;
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+.nested-list > li::before {
+  content: '-';
+  padding-right: 9px;
+  background: linear-gradient(to right, #D3DAE8, #A7B7D8);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  background-size: cover;
+}
+
+.right-container {
+  max-width: 320px;
+  width: 100%;
+  margin-left: 100px;
+  position: relative;
+}
