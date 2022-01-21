@@ -1,6 +1,6 @@
 .main-calculator-container {
   position: absolute;
-  max-width: 310px;
+  max-width: 320px;
   width: 100%;
   color: #111317;
   background: #FFFFFF;
@@ -75,4 +75,63 @@ input[type='number'] {
   font-size: 18px;
   text-align: center;
   font-weight: bold;
+}
+
+.calculator-middle-section {
+  display: flex;
+  margin: 20px 0;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.middle-first-article {
+  max-width: 130px;
+  width: 100%;
+}
+
+.middle-second-article {
+  max-width: 130px;
+  width: 100%;
+}
+.days-amount-text {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.article-total-amount {
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 20px;
+}
+.money-amount-text {
+  color: #7A818E;
+  font-size: 12px;
+  text-align: center;
+  line-height: 15px;
+}
+
+.calculator-bottom-section {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.calculator-bottom-text {
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.calculator-bottom-total {
+  font-size: 24px;
+}
+.bottom-total-days {
+  font-style: normal;
+}
+
+.line-break {
+  color: #E9EDF4;
+  margin: 0;
+  font-size: 1px;
+  opacity: 0.2;
 }
