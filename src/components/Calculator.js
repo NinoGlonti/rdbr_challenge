@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const Calculator = () => {
-  const [salary, setSalary] = useState(null);
-  const [sickDays, setSickDays] = useState(null);
+  const [salary, setSalary] = useState(0);
+  const [sickDays, setSickDays] = useState(0);
   const [employerCompensationDays, setEmployerCompensationDays] = useState(0);
   const [insuranceCompensationDays, setInsuranceCompensationDays] = useState(0);
-  const [sumDays, setSumDays] = useState(0);
-  const [employerCompensationTotal, setEmployerCompensationTotal] = useState(0);
-  const [employerDailyAllowance, setEmployerDayliAllowance] = useState(28);
-  const [insuranceCompensationTotal, setInsuranceCompensationTotal] = useState(0)
-  const [insuranceDailyAllowance, setInsuranceDailyAllowance] = useState(28);
+  const [compensation, setCompensation] = useState({ dayliAllowance: 0, emoloyerCompensation: 0, insuranceCompensation: 0, compensationTotal: 0 })
+  const [checked, setChecked] = useState(false)
 
   const handleSalary = (event) => {
     setSalary(event.target.value);
@@ -20,6 +17,15 @@ const Calculator = () => {
     setSickDays(event.target.value);
   }
 
+  useEffect(() => {
+    setCompensation({
+      dayliAllowance: ((salary / 20) / 100) * 70,
+      emoloyerCompensation: compensation.dayliAllowance * employerCompensationDays,
+      insuranceCompensation: compensation.dayliAllowance * insuranceCompensationDays,
+      compensationTotal: compensation.emoloyerCompensation + compensation.insuranceCompensation
+    })
+  }, [salary, sickDays])
+  console.log('laaaaaaaa', compensation)
   const handleDays = () => {
     let days = [];
     let insuranceDays = []
@@ -29,7 +35,7 @@ const Calculator = () => {
         days.push(i)
         setEmployerCompensationDays(days.length)
       }
-      else if (i >= 9 && i <= 182) {
+      else if (i >= 9 && i <= 190 || i >= 9 && checked && i <= 248) {
         insuranceDays.push(i)
         setInsuranceCompensationDays(insuranceDays.length);
       }
@@ -38,41 +44,30 @@ const Calculator = () => {
         setInsuranceCompensationDays(0);
       }
     }
-
-    setEmployerCompensationTotal(28 * employerCompensationDays);
-    setInsuranceCompensationTotal(28 * insuranceCompensationDays)
-
-
-    /*  let employerCompensation = Math.round((salary - ((70 / 100) * salary)) / employerCompensationDays);
-      let employerAllowance = Math.round(employerCompensation / employerCompensationDays);
-  
-      setEmployerCompensationTotal(employerCompensation);
-      setEmployerDayliAllowance(employerAllowance);
-  
-      let insuranceCompensation = Math.round((salary - ((70 / 100) * salary)) / insuranceCompensationDays);
-      let insuranceAllowance = Math.round(insuranceCompensation / insuranceCompensationDays);
-  
-      setInsuranceCompensationTotal(insuranceCompensation);
-      setInsuranceDailyAllowance(insuranceAllowance);
-  */
   }
   return (
     <main className="main-calculator-container">
       <section className="calculator-top-section">
         <h4 className="calculator-top-header">Compensation Calculator</h4>
         <form>
-          <div className="first-input">
+          <section className="first-input">
             <label className="calculator-label">Average income</label>
-            <input onChange={handleSalary} className="calculator-input" type="number" />
-          </div>
-          <div className="second-input">
+            <div className="income-input">
+              <input onChange={handleSalary} className="calculator-input" type="number" />
+              <p className="euro-sign">€</p>
+            </div>
+          </section>
+          <section className="second-input">
             <label className="calculator-label">Days of sick leave</label>
-            <input onChange={handleSickDays} className="calculator-input" type="number" />
-          </div>
-          <div className="checkbox-input">
-            <input className='checkbox' type="checkbox" name="tuberculosis" />
+            <div className="sick-days-input">
+              <input onChange={handleSickDays} className="calculator-input" type="number" />
+              <p className="days">days</p>
+            </div>
+          </section>
+          <section className="checkbox-input">
+            <input className='checkbox' checked={checked} onChange={e => setChecked(e.target.checked)} type="checkbox" name="tuberculosis" />
             <label className="calculator-label"> I have tuberculosis</label>
-          </div>
+          </section>
         </form>
         <button onClick={handleDays} className="calculator-btn" type='button'>Calculate</button>
       </section>
@@ -80,19 +75,19 @@ const Calculator = () => {
       <section className="calculator-middle-section">
         <article className="middle-first-article">
           <p className="days-amount-text">The employer compensates <br></br><strong> {employerCompensationDays} Days</strong></p>
-          <strong className="article-total-amount">{employerCompensationTotal}$</strong>
-          <p className="money-amount-text">Daily allowance <br></br>{employerDailyAllowance}$</p>
+          <strong className="article-total-amount">{compensation.emoloyerCompensation}€</strong>
+          <p className="money-amount-text">Daily allowance <br></br>{compensation.dayliAllowance}€</p>
         </article>
         <article className="middle-second-article">
           <p className="days-amount-text">Health Insurance compensates <br></br><strong> {insuranceCompensationDays} Days</strong></p>
-          <strong className="article-total-amount">{insuranceCompensationTotal}$</strong>
-          <p className="money-amount-text">Daily allowance<br></br> {insuranceDailyAllowance}$</p>
+          <strong className="article-total-amount">{compensation.insuranceCompensation}€</strong>
+          <p className="money-amount-text">Daily allowance<br></br> {compensation.dayliAllowance}€</p>
         </article>
       </section>
       <hr className="line-break" />
       <section className="calculator-bottom-section">
         <p className="calculator-bottom-text">Compensation for total for <em className="bottom-total-days">{sickDays}</em> days(net)</p>
-        <strong className="calculator-bottom-total">112,00$</strong>
+        <strong className="calculator-bottom-total">{compensation.compensationTotal}€</strong>
       </section>
     </main>
   )

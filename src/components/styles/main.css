@@ -12,7 +12,6 @@ body, html {
   height: 100%;
   width: 100%;
   background: linear-gradient(to right, #2B303A , #3F4756 );
-  overflow-y: scroll;
 }
 
 .landing-page-container {
@@ -20,7 +19,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   max-width: 1080px;
-  padding-top: 100px;
+  padding: 100px 0;
   margin: auto;
 }
 
@@ -113,4 +112,107 @@ h2 {
   max-width: 320px;
   width: 100%;
   position: relative;
+}
+@media (max-width: 480px) {
+  .landing-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 320px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-container {
+    max-width: 300px;
+    width: 100%;
+  }  
+  .middle-section-image {
+    max-width: 300px;
+    width: 100%;
+    margin-top: 20px;
+    height: 200px;
+  }
+  .right-container {
+    width: 100%;
+    padding-top: 30px;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .landing-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+  }
+
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-container {
+    max-width: 700px;
+    width: 100%;
+  }  
+  .middle-section-image {
+    max-width: 300px;
+    width: 100%;
+    margin-top: 20px;
+    height: 200px;
+  }
+  .right-container {
+    padding-top: 30px;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .landing-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    padding-top: 100px;
+    padding-left: 30px;
+  }
+
+  .left-container {
+    max-width: 700px;
+
+  }  
+  .right-container {
+    width: 100%;
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1279px){
+  .landing-page-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    padding-top: 100px;
+  }
+
+  .left-container {
+    max-width: 580px;
+  }  
+  .right-container {
+    max-width: 280px;
+    width: 100%;
+  }
 }
