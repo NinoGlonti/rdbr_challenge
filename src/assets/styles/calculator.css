@@ -129,9 +129,12 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 .days-amount-text {
-  margin-bottom: 10px;
   font-size: 14px;
   line-height: 15px;
+}
+
+.compensation-days {
+  margin-bottom: 10px;
 }
 
 .article-total-amount {

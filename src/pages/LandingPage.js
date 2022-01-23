@@ -1,7 +1,6 @@
 import React from "react";
-import './styles/main.css';
 import Image from '../assets/image.jpeg'
-import Calculator from "./Calculator";
+import Calculator from "../components/Calculator";
 
 
 const LandingPage = () => {
