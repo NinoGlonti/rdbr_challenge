@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rdbr_challenge/static/css/main.cc9e8f4c.css",
+    "main.js": "/rdbr_challenge/static/js/main.0847a5d9.js",
+    "static/media/image.jpeg": "/rdbr_challenge/static/media/image.3f3e1feccaac17bada3f.jpeg",
+    "index.html": "/rdbr_challenge/index.html",
+    "main.cc9e8f4c.css.map": "/rdbr_challenge/static/css/main.cc9e8f4c.css.map",
+    "main.0847a5d9.js.map": "/rdbr_challenge/static/js/main.0847a5d9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc9e8f4c.css",
+    "static/js/main.0847a5d9.js"
+  ]
+}
